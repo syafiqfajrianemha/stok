@@ -65,7 +65,7 @@
             <div class="mb-4">
                 <h3 class="text-lg font-semibold text-gray-800">
                     Total Pendapatan:
-                    <span class="text-blue-600">Rp{{ number_format($totalPendapatan, 0, ',', '.') }}</span>
+                    <span class="text-blue-600">Rp{{ number_format($totalPendapatan, 0, ',', ',') }}</span>
                 </h3>
             </div>
 
@@ -82,7 +82,7 @@
                         <tr>
                             <td class="px-4 py-2 border">{{ $transaksi->created_at->format('d M Y H:i') }}</td>
                             <td class="px-4 py-2 border">{{ $transaksi->kode_transaksi }}</td>
-                            <td class="px-4 py-2 border">Rp{{ number_format($transaksi->total, 0, ',', '.') }}</td>
+                            <td class="px-4 py-2 border">Rp{{ number_format($transaksi->total, 0, ',', ',') }}</td>
                         </tr>
                     @empty
                         <tr>
