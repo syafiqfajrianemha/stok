@@ -18,6 +18,18 @@
                     </x-nav-link>
                 </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('transaksi.index')" :active="request()->routeIs('transaksi.index', 'transaksi.*')">
+                        {{ __('Transaksi') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('barang-masuk.index')" :active="request()->routeIs('barang-masuk.index', 'barang-masuk.*')">
+                        {{ __('Input Barang Masuk') }}
+                    </x-nav-link>
+                </div>
+
                 @can('access-admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('barang.index')" :active="request()->routeIs('barang.index', 'barang.*')">
@@ -83,6 +95,14 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard', 'dashboard.*')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('transaksi.index')" :active="request()->routeIs('transaksi.index', 'transaksi.*')">
+                {{ __('Transaksi') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('barang-masuk.index')" :active="request()->routeIs('barang-masuk.index', 'barang-masuk.*')">
+                {{ __('Input Barang Masuk') }}
             </x-responsive-nav-link>
 
             @can('access-admin')

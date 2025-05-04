@@ -33,7 +33,7 @@
                                         <td class="px-6 py-4 text-sm text-gray-700">
                                             <a href="{{ route('barang.show', $item->id) }}" class="text-blue-500 hover:underline">{{ $item->nama }}</a>
                                         </td>
-                                        <td class="px-6 py-4 text-sm text-gray-700">Rp{{ number_format($item->harga, 0, ',', '.') }}</td>
+                                        <td class="px-6 py-4 text-sm text-gray-700">Rp{{ number_format($item->harga, 0, ',', ',') }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-700">{{ $item->stok }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-700">
                                             <x-primary-href :href="route('barang.edit', $item->id)" class="mb-2">

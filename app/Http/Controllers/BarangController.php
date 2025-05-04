@@ -37,7 +37,7 @@ class BarangController extends Controller
 
     public function show(string $id)
     {
-        $barang = Barang::findOrFail($id);
+        $barang = Barang::with(['masuk.user', 'transaksiItem.transaksi.user'])->findOrFail($id);
         return view('barang.show', compact('barang'));
     }
 

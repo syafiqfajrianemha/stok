@@ -13,4 +13,14 @@ class Barang extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function masuk()
+    {
+        return $this->hasMany(BarangMasuk::class);
+    }
+
+    public function transaksiItem()
+    {
+        return $this->hasMany(TransaksiItem::class);
+    }
 }

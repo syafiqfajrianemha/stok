@@ -28,7 +28,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg font-medium text-gray-900">Harga</h3>
-                        <p class="text-gray-700">Rp{{ number_format($barang->harga, 0, ',', '.') }}</p>
+                        <p class="text-gray-700">Rp{{ number_format($barang->harga, 0, ',', ',') }}</p>
                     </div>
                     <div>
                         <h3 class="text-lg font-medium text-gray-900">Stok Saat Ini</h3>
@@ -38,12 +38,75 @@
                         <h3 class="text-lg font-medium text-gray-900">Stok Minimum</h3>
                         <p class="text-gray-700">{{ $barang->stok_minimum }}</p>
                     </div>
-                    <div class="border-t pt-4">
-                        <h3 class="text-sm text-gray-500">Terakhir diperbarui oleh</h3>
-                        <p class="text-gray-700">
-                            {{ $barang->user->name ?? 'Tidak diketahui' }}
-                            pada {{ $barang->updated_at->translatedFormat('l, d F Y H:i') }}
-                        </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 max-w-3xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white shadow-sm sm:rounded-lg">
+                <div class="p-6 space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Riwayat Barang Masuk</h3>
+                    <div class="overflow-auto">
+                        <table class="min-w-full text-sm text-left border">
+                            <thead class="bg-gray-100 text-gray-700">
+                                <tr>
+                                    <th class="px-4 py-2">Tanggal</th>
+                                    <th class="px-4 py-2">Jumlah</th>
+                                    <th class="px-4 py-2">Keterangan</th>
+                                    <th class="px-4 py-2">Input Oleh</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($barang->masuk as $masuk)
+                                    <tr class="border-t">
+                                        <td class="px-4 py-2">{{ $masuk->created_at->translatedFormat('l, d F Y H:i') }}</td>
+                                        <td class="px-4 py-2">{{ $masuk->jumlah }}</td>
+                                        <td class="px-4 py-2">{{ $masuk->keterangan ?? '-' }}</td>
+                                        <td class="px-4 py-2">{{ $masuk->user->name ?? '-' }}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="px-4 py-2 text-center text-gray-500">Belum ada riwayat masuk</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 max-w-3xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white shadow-sm sm:rounded-lg">
+                <div class="p-6 space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Riwayat Barang Keluar (Penjualan)</h3>
+                    <div class="overflow-auto">
+                        <table class="min-w-full text-sm text-left border">
+                            <thead class="bg-gray-100 text-gray-700">
+                                <tr>
+                                    <th class="px-4 py-2">Tanggal</th>
+                                    <th class="px-4 py-2">Jumlah</th>
+                                    <th class="px-4 py-2">Harga Jual</th>
+                                    <th class="px-4 py-2">Kasir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($barang->transaksiItem as $item)
+                                    <tr class="border-t">
+                                        <td class="px-4 py-2">
+                                            {{ $item->transaksi->created_at->translatedFormat('l, d F Y H:i') }}
+                                        </td>
+                                        <td class="px-4 py-2">{{ $item->qty }}</td>
+                                        <td class="px-4 py-2">Rp{{ number_format($item->harga, 0, ',', ',') }}</td>
+                                        <td class="px-4 py-2">{{ $item->transaksi->user->name ?? '-' }}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="px-4 py-2 text-center text-gray-500">Belum ada riwayat penjualan</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
