@@ -20,7 +20,7 @@
                             <thead>
                                 <tr class="w-full bg-gray-100 border-b">
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">No</th>
-                                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Nama</th>
+                                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Userame</th>
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Email</th>
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Role</th>
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Aksi</th>
@@ -30,7 +30,7 @@
                                 @forelse ($users as $user)
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="px-6 py-4 text-sm text-gray-700">{{ $loop->iteration }}</td>
-                                        <td class="px-6 py-4 text-sm text-gray-700">{{ $user->name }}</td>
+                                        <td class="px-6 py-4 text-sm text-gray-700">{{ $user->username }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-700">{{ $user->email }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-700">{{ $user->role }}</td>
                                         <td class="px-6 py-4 text-sm text-gray-700">

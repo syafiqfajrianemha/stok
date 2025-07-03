@@ -20,6 +20,7 @@
                             <thead>
                                 <tr class="w-full bg-gray-100 border-b">
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">No</th>
+                                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Foto Produk</th>
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Nama Barang</th>
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Harga</th>
                                     <th class="px-6 py-3 text-left text-sm font-medium text-gray-600">Stok</th>
@@ -30,6 +31,9 @@
                                 @forelse ($barang as $item)
                                     <tr class="border-b hover:bg-gray-50">
                                         <td class="px-6 py-4 text-sm text-gray-700">{{ $loop->iteration }}</td>
+                                        <td class="px-6 py-4">
+                                            <img src="{{ asset('storage/files/images/' . $item->image) }}" alt="" width="200">
+                                        </td>
                                         <td class="px-6 py-4 text-sm text-gray-700">
                                             <a href="{{ route('barang.show', $item->id) }}" class="text-blue-500 hover:underline">{{ $item->nama }}</a>
                                         </td>

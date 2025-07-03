@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('harga');
             $table->integer('stok')->default(0);
             $table->integer('stok_minimum')->default(5);
+            $table->string('image');
             $table->timestamps();
         });
     }

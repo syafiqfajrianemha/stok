@@ -28,6 +28,9 @@
                                 @foreach ($barang as $item)
                                     <div class="barang-item border p-3 rounded flex justify-between items-center" data-nama="{{ strtolower($item->nama) }}">
                                         <div>
+                                            <img src="{{ asset('storage/files/images/' . $item->image) }}" alt="" width="50">
+                                        </div>
+                                        <div>
                                             <div class="font-semibold">{{ $item->nama }}</div>
                                             <div class="text-sm text-gray-500">Rp {{ number_format($item->harga, 0, ',', ',') }}</div>
                                         </div>
@@ -38,6 +41,7 @@
                                             data-harga="{{ $item->harga }}"
                                             data-stok="{{ $item->stok }}"
                                             data-stok-minimum="{{ $item->stok_minimum }}"
+                                            data-image="{{ $item->image }}"
                                         >
                                             Tambah
                                         </button>
@@ -87,6 +91,9 @@
                 cartElement.innerHTML += `
                     <div class="border p-2 rounded flex justify-between items-center">
                         <div>
+                            <img src="storage/files/images/${item.image}" alt="" width="50">
+                        </div>
+                        <div>
                             <div class="font-medium">${item.nama}</div>
                             <div class="text-sm text-gray-500">
                                 Rp ${item.harga.toLocaleString()} x ${item.qty} = Rp ${(item.harga * item.qty).toLocaleString()}<br>
@@ -109,6 +116,7 @@
             button.addEventListener('click', () => {
                 const id = button.dataset.id;
                 const nama = button.dataset.nama;
+                const image = button.dataset.image;
                 const harga = parseInt(button.dataset.harga);
                 const stok = parseInt(button.dataset.stok);
                 const stokMinimum = parseInt(button.dataset.stokMinimum);
@@ -136,7 +144,7 @@
                         return;
                     }
 
-                    cart.push({ id, nama, harga, qty: 1, stok, stokMinimum });
+                    cart.push({ id, nama, image, harga, qty: 1, stok, stokMinimum });
                 }
 
                 renderCart();

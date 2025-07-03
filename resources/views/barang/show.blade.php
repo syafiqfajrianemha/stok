@@ -19,6 +19,9 @@
             <div class="bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 space-y-4">
                     <div>
+                        <img src="{{ asset('storage/files/images/' . $barang->image) }}" alt="" width="50%">
+                    </div>
+                    <div>
                         <h3 class="text-lg font-medium text-gray-900">Nama Barang</h3>
                         <p class="text-gray-700">{{ $barang->nama }}</p>
                     </div>
@@ -62,7 +65,7 @@
                                         <td class="px-4 py-2">{{ $masuk->created_at->translatedFormat('l, d F Y H:i') }}</td>
                                         <td class="px-4 py-2">{{ $masuk->jumlah }}</td>
                                         <td class="px-4 py-2">{{ $masuk->keterangan ?? '-' }}</td>
-                                        <td class="px-4 py-2">{{ $masuk->user->name ?? '-' }}</td>
+                                        <td class="px-4 py-2">{{ $masuk->user->username ?? '-' }}</td>
                                     </tr>
                                 @empty
                                     <tr>
@@ -98,7 +101,7 @@
                                         </td>
                                         <td class="px-4 py-2">{{ $item->qty }}</td>
                                         <td class="px-4 py-2">Rp{{ number_format($item->harga, 0, ',', ',') }}</td>
-                                        <td class="px-4 py-2">{{ $item->transaksi->user->name ?? '-' }}</td>
+                                        <td class="px-4 py-2">{{ $item->transaksi->user->username ?? '-' }}</td>
                                     </tr>
                                 @empty
                                     <tr>

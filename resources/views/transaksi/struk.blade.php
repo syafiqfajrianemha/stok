@@ -18,7 +18,7 @@
 </head>
 <body onload="window.print()">
     <div class="text-center mb-2">
-        <h2>Toko Sembako</h2>
+        <h2>Toko Pring Wulung</h2>
         <div class="small">Jl. Contoh No. 123, Purwokerto</div>
     </div>
 
@@ -27,7 +27,7 @@
     <div class="small">
         <strong>Kode:</strong> {{ $transaksi->kode_transaksi }}<br>
         <strong>Tanggal:</strong> {{ $transaksi->created_at->format('d/m/Y H:i') }}<br>
-        <strong>Kasir:</strong> {{ $transaksi->user->name ?? '-' }}
+        <strong>Kasir:</strong> {{ $transaksi->user->username ?? '-' }}
     </div>
 
     <div class="border-top"></div>

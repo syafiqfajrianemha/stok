@@ -18,7 +18,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
-                    <form method="POST" action="{{ route('barang.store') }}">
+                    <form method="POST" action="{{ route('barang.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div>
@@ -45,6 +45,13 @@
                             <x-input-error :messages="$errors->get('stok')" class="mt-2" />
                         </div>
 
+                        <div class="mt-4">
+                            <x-input-label for="image" :value="__('Foto Produk*')" />
+                            <img src="{{ asset('images/default-image.jpg') }}" alt="default-image" class="img-thumbnail img-preview" width="100">
+                            <input type="file" name="image" id="image" onchange="previewImage()" class="mt-1 block w-full file:py-1 file:px-2 file:rounded-full file:border-0 file:bg-blue-50 file:text-blue-700" accept="image/*" required>
+                            <x-input-error class="mt-2" :messages="$errors->get('image')" />
+                        </div>
+
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ms-4">
                                 {{ __('Tambah') }}
@@ -55,4 +62,8 @@
             </div>
         </div>
     </div>
+    @push('script')
+        <script src="{{ asset('js/imgpreview.js') }}"></script>
+    @endpush
 </x-app-layout>
+
