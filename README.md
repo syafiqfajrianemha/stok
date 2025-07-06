@@ -13,16 +13,18 @@ Aplikasi berbasis web yang dirancang khusus untuk membantu pemilik toko UMKM sep
 
 Follow this instructions to install the project:
 
-1. Clone this repo `$ git clone https://github.com/syafiqfajrianemha/monitoring-stok.git`
-2. `$ cd monitoring-stok`
+1. Clone this repo `$ git clone https://github.com/syafiqfajrianemha/stok.git`
+2. `$ cd stok`
 3. `$ composer install`
 4. `$ cp .env.example .env`
 5. `$ php artisan key:generate`
-6. Set **database config** on `.env` file
-7. `$ php artisan migrate --seed`
-8. `$ npm install`
-9. `$ composer run dev`
-10. Open `http://localhost:8000` with browser.
+6. `$ php artisan storage:link`
+7. Set **database config** on `.env` file
+8. `$ php artisan migrate --seed`
+9. `$ npm install`
+10. `$ npm run dev`
+11. `$ php artisan serve`
+12. Open `http://localhost:8000` with browser.
 
 ## License
 
