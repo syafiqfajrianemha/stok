@@ -18,7 +18,7 @@
 </head>
 <body onload="window.print()">
     <div class="text-center mb-2">
-        <h2>Toko Pring Wulung</h2>
+        <h2>Toko Pewe</h2>
         <div class="small">Jl. Contoh No. 123, Purwokerto</div>
     </div>
 

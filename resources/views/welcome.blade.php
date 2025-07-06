@@ -24,25 +24,16 @@
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 border-black hover:border-gray-700 border text-black rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
+                        <a href="{{ url('/dashboard') }}" class="inline-block px-5 py-1.5 border-black hover:border-gray-700 border text-black rounded-sm text-sm leading-normal">Dashboard</a>
                     @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 border-black hover:border-gray-700 border text-black rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
+                        <a href="{{ route('login') }}" class="inline-block px-5 py-1.5 border-black hover:border-gray-700 border text-black rounded-sm text-sm leading-normal">Log in</a>
                     @endauth
                 </nav>
             @endif
         </header>
+
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
+            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row gap-6">
                 <div class="flex flex-col lg:flex-row items-center lg:items-stretch bg-white rounded-lg shadow-lg">
                     <!-- Kolom Foto -->
                     <div class="flex-shrink-0 w-full lg:w-1/3 flex items-center justify-center bg-gray-100 rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none overflow-hidden">
@@ -51,16 +42,25 @@
 
                     <!-- Kolom Deskripsi -->
                     <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                        <h1 class="mb-1 font-medium text-xl">{{ config('app.name') }}</h1>
-                        <p class="mb-2 text-[#706f6c] text-justify">
+                        <h1 class="mb-2 font-semibold text-2xl text-gray-800">{{ config('app.name') }}</h1>
+                        <p class="mb-3 text-[#706f6c] text-justify">
                             Aplikasi berbasis web yang dirancang khusus untuk membantu pemilik toko UMKM seperti toko sembako, jajanan, minuman, dan kebutuhan rumah tangga dalam mengelola stok barang, transaksi penjualan, serta laporan keuangan.
-                            <br><br>
+                        </p>
+                        <p class="mb-4 text-[#706f6c] text-justify">
                             Dengan fitur input barang masuk, pencatatan penjualan otomatis mengurangi stok, laporan pendapatan & pengeluaran, serta notifikasi stok minimum, aplikasi ini memberikan kemudahan dan efisiensi dalam pengelolaan toko secara real-time dan akurat.
                         </p>
                     </div>
                 </div>
             </main>
         </div>
+
+        <!-- Tentang Toko Pewe -->
+        <section class="mt-10 w-full lg:max-w-4xl max-w-[335px] bg-white rounded-lg shadow-lg p-6 lg:p-10">
+            <h2 class="text-xl font-semibold mb-2 text-gray-800">Tentang Toko Pewe</h2>
+            <p class="text-sm text-[#706f6c] text-justify">
+                <strong>Toko Pewe</strong> adalah salah satu pengguna awal aplikasi ini. Berlokasi di daerah padat penduduk, Toko Pewe menjual sembako dan kebutuhan harian. Dengan menggunakan aplikasi ini, Toko Pewe berhasil meningkatkan efisiensi stok, mempercepat proses transaksi, dan memantau pendapatan secara real-time. Testimoni dari pemilik toko menyatakan bahwa aplikasi ini sangat membantu terutama untuk kasir baru yang belum terbiasa dengan sistem manual.
+            </p>
+        </section>
 
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>

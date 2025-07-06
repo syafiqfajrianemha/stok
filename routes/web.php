@@ -7,9 +7,15 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Middleware\RoleCheck;
+use App\Models\Barang;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    $barang = Barang::latest()->get();
+    return view('home', compact('barang'));
+});
+
+Route::get('/old', function () {
     return view('welcome');
 });
 
